@@ -3,10 +3,10 @@ import './BlueColor.css';
 import Header from '../../Header/Header';
 import Promo from '../Promo/Promo';
 
-function BlueColor({handleClick}) {
+function BlueColor({handleClick, loggedIn}) {
     return (
         <div className="blue-color">
-            <Header isActive={false}/>
+            <Header isActive={loggedIn}/>
             <Promo handleClick={handleClick}/>
         </div>
     );
