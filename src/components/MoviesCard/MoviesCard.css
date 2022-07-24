@@ -1,0 +1,71 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    background: #FDFDFD;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+}
+.card__desc{
+    margin: 16px 18px 0 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card__title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+.card__duration{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #A0A0A0;
+    margin: 0 18px 14px 18px;
+    padding: 0;
+}
+.card__img{
+    width: 100%;
+    height: auto;
+    border-radius: 6px 6px 0 0;
+
+}
+.card__button{
+    background-image: url('../../images/unsaved1.svg');
+    background-color: #FFFFFF;
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 11px;
+    padding: 0;
+    border: none;
+}
+
+
+.card__button_saved{
+    background-image: url('../../images/saved.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.card__button:hover{
+    opacity: 0.8;
+}
+.card__button_saved::before{
+    content: '';
+}
+
+.card__button_unsaved{
+    background-image: url('../../images/unsaved.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
