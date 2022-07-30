@@ -3,9 +3,6 @@
   font-family: 'Inter', Arial, sans-serif;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  /* justify-content: center;
-  align-items: flex-start; */
   justify-content: flex-start;
   align-items: center;
 }

@@ -8,7 +8,7 @@ import { useFormWithValidation } from '../../customHooks/validation';
 
 function Profile({handleProfile, info, handleSignOut}) {
     const currentUser = React.useContext(CurrentUserContext);
-    
+
     const [isInputInactive, setInputInactive] = useState(true);
 
     const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
@@ -23,17 +23,17 @@ function Profile({handleProfile, info, handleSignOut}) {
 
     useEffect(() => {
         if (currentUser) {
-          resetForm(currentUser, {}, false);
+            resetForm(currentUser, {}, false);
         }
-      }, [currentUser, resetForm]);
+    }, [currentUser, resetForm]);
 
-      useEffect(() => {
+    useEffect(() => {
         if (info.type === 'success') {
             setInputInactive(true)
         }
-      }, [info]);
+    }, [info]);
 
-    
+
 
     function onEdit(e){
         setInputInactive(false);
@@ -52,8 +52,8 @@ function Profile({handleProfile, info, handleSignOut}) {
                         <div className="profile__data-line">
                             <p className="profile__data-text">Имя</p>
                             <label className="profile__data-label" >
-                                <input 
-                                    className="profile__data-input" 
+                                <input
+                                    className="profile__data-input"
                                     name='name'
                                     type="text"
                                     required
@@ -69,8 +69,8 @@ function Profile({handleProfile, info, handleSignOut}) {
                         <div className="profile__data-line">
                             <p className="profile__data-text">E-mail</p>
                             <label className="profile__data-label" >
-                                <input 
-                                    className="profile__data-input" 
+                                <input
+                                    className="profile__data-input"
                                     type="email"
                                     name='email'
                                     required
@@ -86,27 +86,27 @@ function Profile({handleProfile, info, handleSignOut}) {
                         <div className="profile__data-line"></div>
                     </div>
                 </div>
-                { isInputInactive ? 
-                <div className="profile__form-bottom">
-                    <span className='profile__info profile__info_success'>{info.type === 'success' ? info.text : ''}</span>
-                    <p className='profile__edit' onClick={onEdit}>Редактировать</p>
-                    <Link to='/' onClick={onSignOut} className='profile__sign-out'>Выйти из аккаунта</Link>
-                </div>
-                :
-                <div className="profile__form-bottom">
-                    <span className='profile__info profile__info_error'>{info.type === 'error' ? info.text : ''}</span>
-                    <button 
-                        className={`profile__button-save
+                { isInputInactive ?
+                    <div className="profile__form-bottom">
+                        <span className='profile__info profile__info_success'>{info.type === 'success' ? info.text : ''}</span>
+                        <p className='profile__edit' onClick={onEdit}>Редактировать</p>
+                        <Link to='/' onClick={onSignOut} className='profile__sign-out'>Выйти из аккаунта</Link>
+                    </div>
+                    :
+                    <div className="profile__form-bottom">
+                        <span className='profile__info profile__info_error'>{info.type === 'error' ? info.text : ''}</span>
+                        <button
+                            className={`profile__button-save
                             ${info.type === 'error' ? 'profile__button-save_error' : ''}
                             ${(!isValid || (values.name === currentUser.name && values.email === currentUser.email)) && 'profile__button-save_error'}`
-                        }
-                        onClick={handleSubmit} 
-                        type="submit" 
-                        disabled={!isValid || (values.name === currentUser.name && values.email === currentUser.email)}
-                    >Сохранить</button>
-                </div>
+                            }
+                            onClick={handleSubmit}
+                            type="submit"
+                            disabled={!isValid || (values.name === currentUser.name && values.email === currentUser.email)}
+                        >Сохранить</button>
+                    </div>
                 }
-               
+
             </form>
         </div>
     );
